@@ -1,9 +1,9 @@
 {
     "name": "mojaloop-specification",
-    "version": "9.2.2",
+    "version": "12.0.0",
     "description": "Mojaloop-specification",
     "dependencies": {
-        "express": "4.17.1",
+        "express": "4.18.2",
         "gitbook-cli": "2.3.2",
         "gitbook-plugin-back-to-top-button": "0.1.4",
         "gitbook-plugin-changelog": "1.0.1",
@@ -17,9 +17,14 @@
         "gitbook-plugin-theme-api": "1.1.2",
         "gitbook-plugin-uml": "1.0.1",
         "gitbook-plugin-variables": "1.1.0",
-        "svgexport": "0.3.2"
+        "svgexport": "0.4.2"
     },
-    "devDependencies": {},
+    "devDependencies": {
+        "npm-audit-resolver": "2.3.1",
+        "npm-check-updates": "16.4.2",
+        "got": "^12.5.3",
+        "svgo": "^3.0.2"
+    },
     "scripts": {
         "run": "npm run gitbook:serve",
         "start": "npm run gitbook:serveNoReload",
@@ -28,6 +33,8 @@
         "gitbook:serve": "gitbook serve --port 8989",
         "gitbook:serveNoReload": "gitbook serve --no-live --port 8989",
         "gitbook:export:pdf": "gitbook pdf ./",
+        "dep:check": "npx ncu -e 2",
+        "dep:update": "npx ncu -u",
         "docker:build": "docker build --no-cache -t mojaloop/mojaloop-specification .",
         "docker:push": "docker push mojaloop/mojaloop-specification",
         "docker:run": "docker run --rm -it --name mojadoc -p 8989:8989 mojaloop/mojaloop-specification",
